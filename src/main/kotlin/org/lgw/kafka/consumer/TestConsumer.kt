@@ -6,13 +6,27 @@ import org.springframework.stereotype.Service
 
 private val logger = KotlinLogging.logger {}
 
-@Service
 class TestConsumer {
-
     @KafkaListener(
         topics = ["test"],
+        groupId = "A"
     )
-    fun consume(message:String?){
-        logger.debug{ ">> in message: $message"}
+    fun consumeA(message:String?){
+        logger.debug{ ">> in message A: $message"}
     }
+//    @KafkaListener(
+//        topics = ["test"],
+//        groupId = "B"
+//    )
+//    fun consumeB(message:String?){
+//        logger.debug{ ">> in message: $message"}
+//    }
+//
+//    @KafkaListener(
+//        topics = ["test"],
+//        groupId = "C"
+//    )
+//    fun consumeC(message:String?){
+//        logger.debug{ ">> in message: $message"}
+//    }
 }
