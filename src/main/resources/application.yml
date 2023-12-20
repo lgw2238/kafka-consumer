@@ -1,1 +1,17 @@
 
+spring:
+  output:
+    ansi:
+      enabled: always
+  application:
+    name : kafka-consumer
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      auto-offset-reset: earliest
+      group-id : lgw
+logging:
+  level:
+    org.lgw.kafka: debug
+  pattern:
+    console: "%green(%d{YYYY-MM-dd HH:mm:ss})|%red([%t])|%highlight(%-5level)|%yellow(%class{10}.%method)|%msg%n"
